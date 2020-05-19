@@ -84,7 +84,6 @@ public class VendedorDaoJdbc implements VendedorDao {
 		} finally {
 			BancoDeDados.fecharDeclaracao(declaracaoPreparada);
 		}
-
 	}
 
 	@Override
@@ -127,7 +126,7 @@ public class VendedorDaoJdbc implements VendedorDao {
 				Vendedor vendedor = instanciarVendedor(resultado, departamentoResultado);
 				vendedores.add(vendedor);
 			}
-			return null;
+			return vendedores;
 		} catch (SQLException e) {
 			throw new BancoDeDadosException(e.getMessage());
 		} finally {
@@ -173,7 +172,7 @@ public class VendedorDaoJdbc implements VendedorDao {
 				Vendedor vendedor = instanciarVendedor(resultado, departamentoResultado);
 				vendedores.add(vendedor);
 			}
-			return null;
+			return vendedores;
 		} catch (SQLException e) {
 			throw new BancoDeDadosException(e.getMessage());
 		} finally {
@@ -181,5 +180,4 @@ public class VendedorDaoJdbc implements VendedorDao {
 			BancoDeDados.fecharResultado(resultado);
 		}
 	}
-
 }
